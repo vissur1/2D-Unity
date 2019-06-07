@@ -18,46 +18,26 @@ namespace Gamekit2D
         private float j = 0;
         private float k = 0;
 
+        public float decreaseAmount;
 
-        private float decreaseAmountI = 4;
-        private float decreaseAmountJ = 5;
-        private float decreaseAmountK = 6;
+
+        private float decreaseAmountI;
+        private float decreaseAmountJ;
+        private float decreaseAmountK;
+
+
 
 
 
         void Start()
         {
 
-            /* for (float i = 0; i < decreaseAmount; i++)
-            {
-                L2.intensity = L2.intensity - 1;
-                R2.intensity = R2.intensity - 1;
-
-
-                
-                //StartCoroutine(Wait((decreaseAmount - i)/decreaseAmount));
-            }
-
-            decreaseAmount++;
-
-            for (float i = 0; i < decreaseAmount; i++)
-            {
-                L1.intensity = L1.intensity - 1;
-                R1.intensity = R1.intensity - 1;
-                
-
-            }
-
-            decreaseAmount++;
-
-            for (float i = 0; i < decreaseAmount; i++)
-            {
-                M0.intensity = M0.intensity - 1;
-                
-
-            } */
+        decreaseAmountI = decreaseAmount - 1;
+        decreaseAmountJ = decreaseAmount;
+        decreaseAmountK = decreaseAmount + 1;
 
         }
+
 
         private void Update()
         {
@@ -84,6 +64,11 @@ namespace Gamekit2D
 
                 k++;
             }
+
+            else
+            {
+                Stop();
+            }
         }
 
         IEnumerator Wait()
@@ -91,6 +76,11 @@ namespace Gamekit2D
             print(Time.time);
             yield return new WaitForSecondsRealtime(i);
             print(Time.time);
+        }
+
+        void Stop()
+        {
+            gameObject.active(false);
         }
     }
 }
