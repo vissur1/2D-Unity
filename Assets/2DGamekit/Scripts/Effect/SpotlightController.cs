@@ -1,6 +1,7 @@
 using BTAI;
 using UnityEngine;
 using System.Collections;
+using UnityEditor;
 
 namespace Gamekit2D
 {
@@ -20,11 +21,14 @@ namespace Gamekit2D
 
         public float decreaseAmount;
 
+        private float change = 0;
 
         private float decreaseAmountI;
         private float decreaseAmountJ;
         private float decreaseAmountK;
 
+        public GameObject otherobj;//your other object
+        public string scr;// your secound script name
 
 
 
@@ -36,33 +40,35 @@ namespace Gamekit2D
         decreaseAmountJ = decreaseAmount;
         decreaseAmountK = decreaseAmount + 1;
 
+        change = decreaseAmount / 5;
+
         }
 
 
         private void Update()
         {
-            if (i < decreaseAmountI)
+            if (i != decreaseAmountI)
             {
-                L2.intensity = L2.intensity - 1;
-                R2.intensity = R2.intensity - 1;
+                L2.intensity = L2.intensity - change;
+                R2.intensity = R2.intensity - change;
 
-                i++;
+                i = i + change;
             }
             
-            else if (j < decreaseAmountJ)
+            else if (j != decreaseAmountJ)
             {
-                L1.intensity = L1.intensity - 1;
-                R1.intensity = R1.intensity - 1;
+                L1.intensity = L1.intensity - change;
+                R1.intensity = R1.intensity - change;
 
-                j++;
+                j = j + change;
             }
             
-            else if (k < decreaseAmountK)
+            else if (k != decreaseAmountK)
             {
-                M0.intensity = M0.intensity - 1;
+                M0.intensity = M0.intensity - change;
 
 
-                k++;
+                k = k + change;
             }
 
             else
@@ -80,7 +86,9 @@ namespace Gamekit2D
 
         void Stop()
         {
-            gameObject.active(false);
+            decreaseAmountI = 0;
+            decreaseAmountJ = 0;
+            decreaseAmountK = 0;
         }
     }
 }
