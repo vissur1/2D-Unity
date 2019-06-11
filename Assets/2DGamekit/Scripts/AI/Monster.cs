@@ -22,12 +22,12 @@ public class Monster : MonoBehaviour {
 	
 	// Use this for initialization
 	void Start () {
-		fireRate = 3f;
+		fireRate = 2f;
 		nextFire = Time.time;
 		//script = GetComponent(Monster);
 		//script.enable = false;
 		//gameObject.SetActive(false);
-		nextFire = 7;
+		nextFire = 5;
 
 	}
 	
