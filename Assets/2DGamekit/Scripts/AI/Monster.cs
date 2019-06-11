@@ -55,14 +55,14 @@ public class Monster : MonoBehaviour {
 		if (Time.time > nextFire)
 		{
 			Rigidbody2D clone;
+			Rigidbody2D clone2;
 			//clone = Instantiate(projectile, transform.position, transform.rotation);
 
 			clone = Instantiate(projectile);
 
 			clone.transform.position = new Vector2(spawnposition.position.x, spawnposition.position.y);
-			
+
 			targetX = target.position.x;
-			targetY = target.position.y;
 			
 			
 			clone.velocity = new Vector2(targetX - spawnposition.position.x + Random.Range(-1, 1), targetY - spawnposition.position.y + 1 + Random.Range(-1, 1));

@@ -7,9 +7,9 @@ namespace Gamekit2D
     public class Grenade : MonoBehaviour
     {
         public Vector2 initialForce;
-        public float timer = 1;
+        public float timer = 0;
         public GameObject explosion;
-        public float explosionTimer = 3;
+        public float explosionTimer = 0;
 
         Rigidbody2D Rigidbody;
 

@@ -28,7 +28,7 @@ public class Grenadier : MonoBehaviour {
         //script = GetComponent(Monster);
         //script.enable = false;
         //gameObject.SetActive(false);
-        nextFire = 7;
+        nextFire = 5;
 
     }
 	
@@ -66,11 +66,25 @@ public class Grenadier : MonoBehaviour {
     void ThrowGrenade(Vector2 direction, float targetX, float targetY)
     {
 
-	    grenadeLaunchVelocity = new Vector2(targetX - grenadeSpawnPoint.position.x, targetY - grenadeSpawnPoint.position.y + 5) * 50;
+	    grenadeLaunchVelocity = new Vector2(targetX - grenadeSpawnPoint.position.x, targetY - grenadeSpawnPoint.position.y + 5) * 75;
 	    
 	    var p = Instantiate(grenade);
 	    p.transform.position = grenadeSpawnPoint.position;
 	    p.initialForce = grenadeLaunchVelocity;
+	    
+	    var d = Instantiate(grenade);
+
+	    grenadeLaunchVelocity = new Vector2(targetX - grenadeSpawnPoint.position.x, targetY - grenadeSpawnPoint.position.y + 6) * 75;
+	    
+	    d.transform.position = grenadeSpawnPoint.position;
+	    d.initialForce = grenadeLaunchVelocity;
+	    
+	    
+	    grenadeLaunchVelocity = new Vector2(targetX - grenadeSpawnPoint.position.x, targetY - grenadeSpawnPoint.position.y + 4) * 75;
+	    
+	    var c = Instantiate(grenade);
+	    c.transform.position = grenadeSpawnPoint.position;
+	    c.initialForce = grenadeLaunchVelocity;
     }
     
 }
